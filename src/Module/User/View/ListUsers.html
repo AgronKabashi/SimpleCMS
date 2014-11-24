@@ -1,0 +1,25 @@
+﻿<div class="page-content-default">
+	<h1 ng-bind="::Localization.User.Users" class="page-header"></h1>
+
+	<a class="default-button" ui-sref="EditUser({UserId: 0})" ng-bind="::Localization.User.AddUser"></a>
+	<br /><br />
+	<ul class="list">
+		<li class="list-header">
+			<span ng-bind="::Localization.User.FirstName"></span>
+			<span class="Date" ng-bind="::Localization.User.LastName"></span>
+			<span></span>
+		</li>
+		<li ng-repeat="user in Users">
+			<span ng-bind="user.FirstName"></span>
+			<span ng-bind="user.LastName"></span>
+
+			<div class="button-group">
+				<a class="setting-button" ui-sref="EditUser({ UserId: user.Id })" ng-bind="::Localization.Generic.EditSettings"></a>
+				<a class="danger-button" ng-click="RemoveUser(user)" ng-bind="::Localization.Generic.Remove"></a>
+			</div>
+		</li>
+		<li ng-class="{hidden: Users.length }">
+			<span>No Items</span>
+		</li>
+	</ul>
+</div>

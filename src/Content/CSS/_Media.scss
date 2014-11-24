@@ -1,0 +1,12 @@
+﻿$mobile: new-breakpoint(max-width 767px);
+$tablet: new-breakpoint(min-width 768px);
+$desktop: new-breakpoint(min-width 1025px);
+$x-large: new-breakpoint(min-width 1238px);
+
+@include media($mobile)
+{
+	.hide-mobile
+	{
+		display: none !important;
+	}
+}

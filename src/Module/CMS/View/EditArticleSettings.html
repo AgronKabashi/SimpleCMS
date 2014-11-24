@@ -1,0 +1,45 @@
+﻿<link href="/Content/CSS/EditPage.css" rel="Stylesheet" />
+
+<div class="page-content-small page-edit">
+	<h1 ng-bind="PageTitle" class="page-header"></h1>
+
+	<div>
+		<label ng-bind="::Localization.CMS.Name"></label>
+		<input type="text" ng-model="Article.Name" autofocus="autofocus" />
+	</div>
+
+	<div>
+		<label ng-bind="::Localization.CMS.Templates"></label>
+		<select ng-disabled="Article.Id > 0" ng-model="Article.TemplateId" ng-options="template.Id as template.Name for template in Templates"></select>
+	</div>
+
+	<div>
+		<label>Description</label>
+		<input type="text" ng-model="Article.Description" />
+	</div>
+
+	<!--<div>
+		<label>SEO NAME</label>
+		<input type="text" ng-model="Article.SEOName" />
+	</div>
+
+	<div>
+		<label>IMAGE LARGE</label>
+		<input type="text" ng-model="Article.Image" />
+	</div>
+
+	<div>
+		<label>IMAGE Thumbnail</label>
+		<input type="text" ng-model="Article.Thumbnail" />
+	</div>-->
+
+	<div>
+		<label>Published</label>
+		<input type="checkbox" ng-model="Article.Publication.IsPublished" />
+	</div>
+
+	<div>
+		<a class="default-button" ng-click="Save()" ng-bind="::Localization.Generic.Save"></a>
+		<a class="danger-button" ng-click="History.back()" ng-bind="::Localization.Generic.Cancel"></a>
+	</div>
+</div>

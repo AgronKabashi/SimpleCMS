@@ -1,0 +1,12 @@
+﻿<div ng-if="IsVisible" ng-cloak>
+	<a class="home icon-home" ui-sref="Home"></a>
+
+	<span class="right-align">
+		<a class="info-button">
+			<span class="icon-user"></span>
+			<span ng-bind="User.FirstName"></span>
+			<span ng-bind="User.LastName"></span>
+		</a>
+		<a class="danger-button icon-sign-out" ng-click="Logout()"></a>
+	</span>
+</div>

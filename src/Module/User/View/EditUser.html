@@ -1,0 +1,47 @@
+﻿<link href="/Content/CSS/EditPage.css" rel="Stylesheet" />
+
+<div class="page-content-small page-edit">
+	<h1 ng-bind="PageTitle" class="page-header"></h1>
+	<div>
+		<label ng-bind="::Localization.User.UserName"></label>
+		<input type="text" ng-model="User.UserName" autofocus="autofocus" />
+	</div>
+
+	<div>
+		<label ng-bind="::Localization.User.FirstName"></label>
+		<input type="text" ng-model="User.FirstName" />
+	</div>
+
+	<div>
+		<label ng-bind="::Localization.User.LastName"></label>
+		<input type="text" ng-model="User.LastName" />
+	</div>
+
+	<div>
+		<label ng-bind="::Localization.User.NewPassword"></label>
+		<input type="password" ng-model="NewPassword" ng-class="{ 'has-success': NewPassword.length > 0 && NewPassword === RepeatPassword, 'has-error': User.Id === 0 && !NewPassword.length > 0  }" />
+	</div>
+
+	<div>
+		<label ng-bind="::Localization.User.RepeatPassword"></label>
+		<input type="password" ng-model="RepeatPassword" ng-class="{ 'has-success': NewPassword.length > 0 && NewPassword === RepeatPassword, 'has-error': NewPassword.length > 0 && NewPassword != RepeatPassword || User.Id === 0 && NewPassword.length === 0 }" />
+	</div>
+
+	<ul class="list">
+		<li class="list-header">
+			<span ng-bind="::Localization.User.Roles"></span>
+		</li>
+
+		<li ng-repeat="role in Roles">
+			<label>
+				<span ng-bind="::Localization.User.RoleNames[role.Name]"></span>
+				<input type="checkbox" ng-model="role.Checked" ng-checked="UserHasRole(role)" class="float-right" />
+			</label>
+		</li>
+	</ul>
+
+	<div>
+		<a class="default-button" ng-click="Save()" ng-bind="::Localization.Generic.Save"></a>
+		<a class="danger-button" ng-click="History.back()" ng-bind="::Localization.Generic.Cancel"></a>
+	</div>
+</div>

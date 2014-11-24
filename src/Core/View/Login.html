@@ -1,0 +1,14 @@
+<div class="login-container">
+  <span class="title" ng-bind="::Localization.Login.Title"></span>
+
+	<input type="text" ng-model="Credentials.UserName" autofocus="autofocus" ng-attr-placeholder="{{::Localization.Login.EnterUserName}}" ng-change="LoginFailed = false" ng-class="{ 'has-error': LoginFailed || !FirstTime && Credentials.UserName.length === 0, 'has-success': LoginSuccess }" />
+	<input type="password" ng-model="Credentials.Password" ng-attr-placeholder="{{::Localization.Login.EnterPassword}}" ng-change="LoginFailed = false" ng-class="{ 'has-error': LoginFailed || !FirstTime && Credentials.Password.length === 0, 'has-success': LoginSuccess }" />
+
+  <div ng-show="LoginFailed || LoginSuccess">
+    <label ng-bind="LoginMessage" class="label" ng-class="{ 'text-danger': LoginFailed, 'text-success': LoginSuccess }"></label>
+  </div>
+
+  <button class="login-button" ng-click="Login()">
+    <span class="icon-angle-right"></span>
+  </button>
+</div>

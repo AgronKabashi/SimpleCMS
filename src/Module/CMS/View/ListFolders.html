@@ -1,0 +1,48 @@
+﻿<link href="/Module/CMS/Content/CSS/ListFolders.css" rel="Stylesheet" />
+
+<div class="page-content-default">
+	<h1 ng-bind="::Localization.CMS.Folders" class="page-header"></h1>
+
+	<a ng-click="AddFolder()" ng-bind="::Localization.CMS.AddFolder" class="default-button"></a>
+	<a ng-click="AddArticle()" ng-bind="::Localization.CMS.AddArticle" class="default-button"></a>
+	<br /><br />
+
+	<ul class="list">
+
+		<li class="list-header">
+			<span>Name</span>
+			<span class="right-align">
+				<a ng-show="Folder.Id > 0" ui-sref="ListFolders({ FolderId: Folder.ParentId })">
+					Go up
+				</a>
+			</span>
+		</li>
+
+		<li ng-repeat="folder in Folders">
+			<a ui-sref="ListFolders({ FolderId: folder.Id })" class="folder" ng-bind="folder.Name"></a>
+
+			<div class="button-group">
+				<a class="setting-button" ng-click="EditFolder(folder)" ng-bind="::Localization.Generic.EditSettings"></a>
+				<a class="danger-button" ng-click="RemoveFolder(folder)" ng-bind="::Localization.Generic.Remove"></a>
+			</div>
+		</li>
+		
+		<li ng-repeat="article in Articles">
+			<span class="article">
+				<span class="glyphicon glyphicon-file"></span>
+				<span ng-bind="article.Name" ng-click="ShowArticle(article)"></span>
+			</span>
+
+			<div class="button-group">
+				<a class="default-button hide-mobile" ng-click="EditArticle(article)" ng-bind="::Localization.Generic.Edit"></a>
+				<a class="default-button hide-mobile" ng-click="CloneArticle(article)" ng-bind="::Localization.Generic.Clone"></a>
+				<a class="setting-button" ui-sref="EditArticleSettings({ ArticleId: article.Id, FolderId: article.FolderId })" ng-bind="::Localization.Generic.EditSettings"></a>
+				<a class="danger-button" ng-click="RemoveArticle(article)" ng-bind="::Localization.Generic.Remove"></a>
+			</div>
+		</li>
+
+		<li ng-class="{hidden: (Articles.length + Folders.length) }">
+			<span>No Items</span>
+		</li>
+	</ul>
+</div>

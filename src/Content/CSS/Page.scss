@@ -1,0 +1,52 @@
+﻿@import "Reset";
+
+@import "bourbon";
+@import "neat";
+@import "Media";
+
+@import "Layout";
+@import "Branding";
+@import "Typography";
+
+@import "List";
+@import "Font";
+@import "Button";
+@import "Checkbox";
+@import "DropdownList";
+@import "TextBox";
+
+.page-content,
+.page-content-small,
+page-content-default
+{
+	padding: 60px 1rem 1rem 1rem;
+}
+
+.page-header
+{
+	border-bottom: 1px solid $borderColor;
+	font-size: 2rem;
+	margin: 2rem 0;
+}
+
+@include media($tablet)
+{
+	.page-content
+	{
+		@include outer-container;
+		margin-left: 0;
+		padding: 60px 40px 20px 40px;
+	}
+
+	.page-content-small
+	{
+		@extend .page-content;
+		max-width: 640px;
+	}
+
+	.page-content-default
+	{
+		@extend .page-content;
+		max-width: 768px;
+	}
+}

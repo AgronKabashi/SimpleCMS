@@ -1,0 +1,45 @@
+@import "bourbon";
+@import "neat";
+@import "Media";
+
+.page-content-small > div,
+.page-content-default > div
+{
+	@include outer-container;
+	height: 50px;
+	line-height: 36px;
+	margin-left: 0;
+
+	>
+	{
+		input[type=text],
+		input[type=password],
+		select
+		{
+			@include span-columns(9);
+		}
+
+		input[type=checkbox]
+		{
+			@include span-columns(9);
+			margin: 0;
+		}
+	}
+}
+
+.page-edit > div >	label
+{
+	@include span-columns(3);
+	display: block;
+	white-space: nowrap;
+
+	&::after
+	{
+		content: ":";
+	}
+}
+
+.list
+{
+	margin-bottom: 1rem;
+}

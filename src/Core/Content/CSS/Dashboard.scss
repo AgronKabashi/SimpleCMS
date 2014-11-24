@@ -1,0 +1,27 @@
+﻿cs-dashboard > div
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.3) inset, 0 1px 0 #000000;
+	background: linear-gradient(to bottom, #4C4851, #38353C) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	color: white;
+	padding: 10px 20px 5px 40px;
+	z-index: 1;
+	height: 52px;
+
+	.home
+	{
+		background-color: transparent;
+		border: none;
+		color: white;
+		font-size: 30px;
+		padding-left: 0px;
+	}
+
+	.right-align
+	{
+		float: right;
+	}
+}

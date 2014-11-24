@@ -1,0 +1,17 @@
+﻿.folder,
+.article
+{
+	cursor: pointer;
+}
+
+.browse-up
+{
+	cursor: pointer;
+
+	.glyphicon.glyphicon-share-alt
+	{
+		-webkit-transform: rotateZ(-90deg);
+		transform: rotateZ(-90deg);
+		color: green;
+	}
+}

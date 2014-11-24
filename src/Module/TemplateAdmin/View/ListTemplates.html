@@ -1,0 +1,28 @@
+<div class="page-content-default">
+	<h1 ng-bind="::Localization.Template.Templates" class="page-header"></h1>
+
+	<a ui-sref="EditTemplateSettings({TemplateId: 0})" ng-bind="::Localization.Template.AddTemplate" class="default-button"></a>
+	<br /><br />
+
+	<ul class="list">
+		<li class="list-header">
+			<span ng-bind="::Localization.Generic.Name"></span>
+			<span class="date hide-mobile" ng-bind="::Localization.Generic.LastModified"></span>
+			<span></span>
+		</li>
+		<li ng-repeat="template in Templates track by template.Id">
+			<span ng-bind="template.Name"></span>
+			<span class="date hide-mobile" ng-bind="template.CreatedDateAsString"></span>
+
+			<div class="button-group">
+				<a class="default-button hide-mobile" ng-click="EditTemplate(template)" ng-bind="::Localization.Generic.Edit"></a>
+				<a class="default-button hide-mobile" ng-click="CloneTemplate(template)" ng-bind="::Localization.Generic.Clone"></a>
+				<a class="setting-button" data-ui-sref="EditTemplateSettings({ TemplateId: template.Id })" ng-bind="::Localization.Generic.EditSettings"></a>
+				<a class="danger-button" ng-click="RemoveTemplate(template)" ng-bind="::Localization.Generic.Remove"></a>
+			</div>
+		</li>
+		<li ng-class="{hidden: Templates && Templates.length}">
+			<i ng-bind="::Localization.Generic.NoDataAvailable"></i>
+		</li>
+	</ul>
+</div>

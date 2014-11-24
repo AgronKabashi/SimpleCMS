@@ -1,3 +1,0 @@
-[submodule "src/Tool"]
-	path = src/Tool
-	url = https://github.com/AgronKabashi/TemplateEngine.git

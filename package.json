@@ -1,0 +1,45 @@
+{
+  "name": "SimpleCMS",
+  "version": "0.9.0",
+  "description": "",
+  "homepage": "http://www.cerberussolutions.se",
+  "author": "Agron Kabashi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AgronKabashi/SimpleCMS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AgronKabashi/SimpleCMS/issues"
+  },
+  "main": "gruntfile.js",
+  "devDependencies": {
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-newer": "^0.7.0",
+    "grunt-open": "^0.2.3",
+    "grunt-sass": "^0.14.0",
+    "karma": "^0.12.23",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-jasmine": "^0.1.5",
+    "karma-requirejs": "^0.2.2",
+    "matchdep": "^0.3.0",
+    "node-bourbon": "^1.2.3",
+    "node-neat": "^1.3.0",
+    "requirejs": "^2.1.15"
+  },
+  "licenses": [
+    {
+      "type": "Copyright"
+    }
+  ],
+  "dependencies": {
+    "TemplateEngine": "git+https://git@github.com/AgronKabashi/TemplateEngine.git"
+  }
+}

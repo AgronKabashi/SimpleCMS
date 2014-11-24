@@ -1,0 +1,20 @@
+﻿<link href="/Content/CSS/EditPage.css" rel="Stylesheet" />
+
+<div class="page-content-small page-edit">
+	<h1 ng-bind="PageTitle" class="page-header"></h1>
+
+	<div>
+		<label ng-bind="::Localization.CMS.Name"></label>
+		<input type="text" ng-model="Folder.Name" autofocus="autofocus" />
+	</div>
+
+	<!--<div>
+		<label ng-bind="::Localization.SEOName"></label>
+		<input type="text" ng-model="Folder.SEOName" />
+	</div>-->
+
+	<div>
+		<a class="default-button" ng-click="Save()" ng-bind="::Localization.Generic.Save"></a>
+		<a class="danger-button" ng-click="History.back()" ng-bind="::Localization.Generic.Cancel"></a>
+	</div>
+</div>
