@@ -13,7 +13,7 @@
 				return {
 					restrict: "E",
 					templateUrl: "/Core/View/Dashboard.html",
-				
+
 					controller:
 					[
 						"$scope",

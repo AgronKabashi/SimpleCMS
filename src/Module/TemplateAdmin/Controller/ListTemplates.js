@@ -22,7 +22,7 @@ define(
 
 					$scope.EditTemplate = function (template)
 					{
-						document.location.href = String.format("/Tool/TemplateEditor/#/Template/{0}", template.Id);
+						document.location.href = String.format("/Tool/TemplateEditor/#/Design/{0}", template.Id);
 					};
 
 					$scope.RemoveTemplate = function (template)

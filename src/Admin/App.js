@@ -45,7 +45,7 @@
 				"Cerberus.Core.Service.HttpInterceptorProvider",
 				function ($stateProvider, $urlRouterProvider, $httpProvider, TemplateProvider, ArticleProvider, FolderProvider, UserProvider, UserAuthenticationProvider, HttpInterceptorProvider)
 				{
-					var apiUrl = "http://localhost:9001/api";
+					var apiUrl = "@@APIURL";
 
 					//Configure providers
 					ArticleProvider.SetServiceUrl(apiUrl);

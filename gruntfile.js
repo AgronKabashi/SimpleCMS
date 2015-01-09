@@ -6,21 +6,25 @@ module.exports = function (grunt)
 	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 	require("node-neat");
 	require("node-bourbon");
-	
-	grunt.registerTask("debug",
+
+	grunt.registerTask("build",
 	[
 	  "clean:all",
 	  "copy",
 	  "sass",
+	  "replace"
+	]);
+
+	grunt.registerTask("debug",
+	[
+	  "build",
 	  "connect:livereload",
 	  "watch"
 	]);
 
 	grunt.registerTask("release",
 	  [
-		"clean:all",
-		"copy",
-		"sass",
+		"build",
 		"htmlmin",
 		"uglify"
 	  ]);
@@ -35,18 +39,18 @@ module.exports = function (grunt)
 		config:
 		{
 			src: "src",
-			dist: "dist"
+			dist: "dist",
+			apiUrl: "http://localhost:9001/api"
 		},
 		connect: {
 			options: {
-				port: 9000,
-				livereload: 35729,
+				port: 9002,
 				// change this to '0.0.0.0' to access the server from outside
 				hostname: 'localhost'
 			},
 			livereload: {
 				options: {
-					open: "http://localhost:9000/Admin",
+					open: "http://localhost:9002/Admin",
 					base: [
 					  '<%= config.dist %>'
 					]
@@ -57,7 +61,7 @@ module.exports = function (grunt)
 		{
 			options:
 			{
-				livereload: true
+				livereload: 35730
 			},
 			binaries:
 			{
@@ -78,11 +82,6 @@ module.exports = function (grunt)
 			{
 				files: ["<%= config.src %>/**/*.{png,jpg}"],
 				tasks: ["newer:copy:images"]
-			},
-			dotnet:
-			{
-				files: ["<%= config.src %>/**/*.{svc,config,svc,asax,aspx,ascx,cs}"],
-				tasks: ["newer:copy:dotnet"]
 			},
 			markup:
 			{
@@ -107,7 +106,7 @@ module.exports = function (grunt)
 					minifyCSS: true,
 					caseSensitive: true
 				},
-				files: 
+				files:
 				[
 					{
 						expand: true,
@@ -211,21 +210,6 @@ module.exports = function (grunt)
 					}
 				]
 			},
-			dotnet:
-			{
-				files:
-				[
-					{
-						expand: true,
-						cwd: "<%= config.src %>",
-						src: "**/*.{svc,config,svc,asax,aspx,ascx,cs}",
-						dest: "<%= config.dist %>"
-					},
-					{
-						"<%= config.dist %>/web.config": "web.debug.config"
-					},
-				]
-			},
 			scripts:
 			{
 				files:
@@ -250,28 +234,59 @@ module.exports = function (grunt)
 					}
 				]
 			},
-			templateEngine:
-			{
-				files:
-				[
-					{
-						expand: true,
-						cwd: "node_modules/TemplateEngine/dist/TemplateEngine",
-						src: "**/*",
-						dest: "<%= config.dist %>/Tool/TemplateEngine"
-					},
-					{
-						expand: true,
-						cwd: "node_modules/TemplateEngine/dist/TemplateEditor",
-						src: "**/*",
-						dest: "<%= config.dist %>/Tool/TemplateEditor"
-					}
-				]
-			}
+			//templateEngine:
+			//{
+			//	files:
+			//	[
+			//		{
+			//			expand: true,
+			//			cwd: "node_modules/TemplateEngine/dist/TemplateEngine",
+			//			src: "**/*",
+			//			dest: "<%= config.dist %>/Tool/TemplateEngine"
+			//		},
+			//		{
+			//			expand: true,
+			//			cwd: "node_modules/TemplateEngine/dist/TemplateEditor",
+			//			src: "**/*",
+			//			dest: "<%= config.dist %>/Tool/TemplateEditor"
+			//		}
+			//	]
+			//}
 		},
 		jshint:
 		{
 			all: ['<%= config.src %>/**/*.js']
+		},
+		replace:
+		{
+			inject_apiUrl:
+			{
+				options:
+				{
+					patterns:
+					[
+						{
+							match: "APIURL",
+							replacement: "<%= config.apiUrl %>"
+						}
+					]
+				},
+				files:
+				[
+					{
+						expand: true,
+						flatten: true,
+						src: ["<%= config.dist %>/Admin/App.js"],
+						dest: "<%= config.dist %>/Admin"
+					},
+					{
+						expand: true,
+						flatten: true,
+						src: ["<%= config.dist %>/Tool/TemplateEditor/App.js"],
+						dest: "<%= config.dist %>/Tool/TemplateEditor"
+					}
+				]
+			}
 		},
 		clean:
 		{

@@ -5,7 +5,7 @@
 	<input type="password" ng-model="Credentials.Password" ng-attr-placeholder="{{::Localization.Login.EnterPassword}}" ng-change="LoginFailed = false" ng-class="{ 'has-error': LoginFailed || !FirstTime && Credentials.Password.length === 0, 'has-success': LoginSuccess }" />
 
   <div ng-show="LoginFailed || LoginSuccess">
-    <label ng-bind="LoginMessage" class="label" ng-class="{ 'text-danger': LoginFailed, 'text-success': LoginSuccess }"></label>
+    <label ng-bind="LoginMessage" class="label" ng-class="{ 'text-danger': LoginFailed, 'text-success': LoginSuccess }"></label>asd
   </div>
 
   <button class="login-button" ng-click="Login()">

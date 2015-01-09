@@ -31,7 +31,7 @@ define(
 						TemplateService.SaveTemplateInfo($scope.Template)
 							.then(function(template)
 							{
-								document.location.href = String.format("/Tool/TemplateEditor/#/Template/{0}?ExitUrl={1}", template.Id, $state.href("ListTemplates", {}, {absolute: true}));
+								document.location.href = String.format("/Tool/TemplateEditor/#/Design/{0}?ExitUrl={1}", template.Id, $state.href("ListTemplates", {}, {absolute: true}));
 							});
 					};
 

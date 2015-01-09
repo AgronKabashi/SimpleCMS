@@ -13,9 +13,12 @@
 </head>
 
 <body>
-	<templaterenderer></templaterenderer>
+	<ui-view>
+		<templaterenderer></templaterenderer>
+	</ui-view>
 
 	<script src="/Dependencies/DependencyConfig.js"></script>
 	<script src="/Dependencies/RequireJS/v2.1.11/require.min.js" data-main="Bootstrap.js"></script>
+	<!--<script src="//cdn.jsdelivr.net/g/requirejs@2.1.11"></script>-->
 </body>
 </html>
