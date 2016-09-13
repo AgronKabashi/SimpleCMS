@@ -1,8 +1,6 @@
 SimpleCMS
 =========
 
-WARNING: PRE-ALPHA - BETA RELEASE COMING SOON
-
 ###Related Projects
-- __[TemplateEngine](https://github.com/AgronKabashi/TemplateEngine) -__  A powerful web component templating framework that helps you build web applications using only your browser.  
+- __[TemplateEngine](https://github.com/AgronKabashi/TemplateEngine) -__  A powerful web component templating framework that helps you build web applications using only your browser. (Note: this uses a much older version of templateengine)
 - __[SimpleCMS.API](https://github.com/AgronKabashi/SimpleCMS.API) -__ An optional backend service for SimpleCMS.   
